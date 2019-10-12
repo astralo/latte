@@ -28,7 +28,9 @@
 
   @include('dashboard.partials.sidebar')
 
-  @yield('content')
+  <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    @yield('content')
+  </main>
 </div>
 
 <script src="{{ elixir('js/app.js') }}"></script>
