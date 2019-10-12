@@ -2,4 +2,4 @@
 
 /** @var \Illuminate\Routing\Router $router */
 
-$router->get('/', 'DashboardController@index');
+$router->get('/', 'DashboardController@index')->name('index');
