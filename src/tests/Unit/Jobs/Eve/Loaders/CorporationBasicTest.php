@@ -1,13 +1,13 @@
 <?php
 
-namespace Tests\Feature\Jobs\Eve\Loaders;
+namespace Tests\Unit\Jobs\Eve\Loaders;
 
 use App\Models\Eve\Corporation;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class CorporationBasic extends TestCase
+class CorporationBasicTest extends TestCase
 {
     /** @test */
     public function itCanParseCorporationAndSaveToDatabase()

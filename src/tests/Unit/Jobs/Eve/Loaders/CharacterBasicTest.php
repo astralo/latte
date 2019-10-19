@@ -8,7 +8,7 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class CharacterBasic extends TestCase
+class CharacterBasicTest extends TestCase
 {
     /** @test */
     public function itCanParseCharacterAndSaveToDatabase()
