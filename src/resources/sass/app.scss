@@ -7,5 +7,7 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-@import "sidebar";
-@import "navbar";
+@import "components/sidebar";
+@import "components/navbar";
+
+@import "components/layout";

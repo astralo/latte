@@ -59,48 +59,6 @@ class AddCharacterTables extends Migration
                 $table->timestamps();
             });
 
-            \Schema::table('eve_alliances', function (Blueprint $table) {
-
-                $table->foreign('creator_corporation_id')
-                    ->references('id')
-                    ->on('eve_corporations')
-                    ->onDelete('no action');
-                $table->foreign('creator_id')
-                    ->references('id')
-                    ->on('eve_characters')
-                    ->onDelete('no action');
-                $table->foreign('executor_corporation_id')
-                    ->references('id')
-                    ->on('eve_corporations')
-                    ->onDelete('no action');
-            });
-
-            \Schema::table('eve_corporations', function (Blueprint $table) {
-                $table->foreign('alliance_id')
-                    ->references('id')
-                    ->on('eve_alliances')
-                    ->onDelete('no action');
-                $table->foreign('ceo_id')
-                    ->references('id')
-                    ->on('eve_characters')
-                    ->onDelete('no action');
-                $table->foreign('creator_id')
-                    ->references('id')
-                    ->on('eve_characters')
-                    ->onDelete('no action');
-            });
-
-            \Schema::table('eve_characters', function (Blueprint $table) {
-                $table->foreign('corporation_id')
-                    ->references('id')
-                    ->on('eve_corporations')
-                    ->onDelete('no action');
-                $table->foreign('alliance_id')
-                    ->references('id')
-                    ->on('eve_alliances')
-                    ->onDelete('no action');
-            });
-
             \Schema::create('eve_character_corp_history', function (Blueprint $table) {
 
                 $table->integer('id')->unsigned();
@@ -165,25 +123,11 @@ class AddCharacterTables extends Migration
 
     public function down()
     {
-        \Schema::table('eve_characters', function (Blueprint $table) {
-            $table->dropForeign('eve_characters_alliance_id_foreign');
-            $table->dropForeign('eve_characters_corporation_id_foreign');
-        });
         \Schema::table('eve_character_corp_history', function (Blueprint $table) {
             $table->dropForeign('eve_character_corp_history_corporation_id_foreign');
         });
-        \Schema::table('eve_corporations', function (Blueprint $table) {
-            $table->dropForeign('eve_corporations_alliance_id_foreign');
-            $table->dropForeign('eve_corporations_ceo_id_foreign');
-            $table->dropForeign('eve_corporations_creator_id_foreign');
-        });
         \Schema::table('eve_corporation_alli_history', function (Blueprint $table) {
             $table->dropForeign('eve_corporation_alli_history_alliance_id_foreign');
-        });
-        \Schema::table('eve_alliances', function (Blueprint $table) {
-            $table->dropForeign('eve_alliances_creator_corporation_id_foreign');
-            $table->dropForeign('eve_alliances_creator_id_foreign');
-            $table->dropForeign('eve_alliances_executor_corporation_id_foreign');
         });
 
         \Schema::dropIfExists('eve_characters');

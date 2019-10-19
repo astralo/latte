@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ContactType extends Model
 {
-    protected $table = 'eve_alliances';
+    protected $table = 'contact_types';
 
     protected $guarded = [];
 
