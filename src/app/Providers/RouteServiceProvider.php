@@ -57,7 +57,7 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware('web')
             ->namespace($this->namespace)
             ->group(function (Router $router) {
-                require_once base_path('routes/site/web.php');
+                require base_path('routes/site/web.php');
             });
     }
 
@@ -68,7 +68,7 @@ class RouteServiceProvider extends ServiceProvider
             ->namespace($this->dashboardNamespace)
             ->name('dashboard.')
             ->group(function (Router $router) {
-                require_once base_path('routes/dashboard/web.php');
+                require base_path('routes/dashboard/web.php');
             });
     }
 
@@ -85,7 +85,7 @@ class RouteServiceProvider extends ServiceProvider
             ->middleware('api')
             ->namespace($this->namespace)
             ->group(function (Router $router) {
-                require_once base_path('routes/site/api.php');
+                require base_path('routes/site/api.php');
             });
     }
 }
