@@ -32,7 +32,6 @@ class CorporationBasic implements ShouldQueue
     public function __construct(int $corpId)
     {
         $this->corpId         = $corpId;
-        $this->corporationApi = new CorporationApi();
     }
 
     /**
@@ -42,6 +41,8 @@ class CorporationBasic implements ShouldQueue
      */
     public function handle()
     {
+        $this->corporationApi = new CorporationApi();
+
         $corporation = $this->corporationApi->getCorporationsCorporationId($this->corpId);
 
         if (!$corp = Corporation::find($this->corpId)) {

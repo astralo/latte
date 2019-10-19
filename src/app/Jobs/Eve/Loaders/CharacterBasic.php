@@ -32,7 +32,6 @@ class CharacterBasic implements ShouldQueue
     public function __construct(int $charId)
     {
         $this->charId       = $charId;
-        $this->characterApi = new CharacterApi;
     }
 
     /**
@@ -42,6 +41,8 @@ class CharacterBasic implements ShouldQueue
      */
     public function handle()
     {
+        $this->characterApi = new CharacterApi;
+
         $character = $this->characterApi->getCharactersCharacterId($this->charId);
 
         if (!$char = Character::find($this->charId)) {

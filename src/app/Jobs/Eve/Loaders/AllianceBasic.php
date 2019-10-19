@@ -32,7 +32,6 @@ class AllianceBasic implements ShouldQueue
     public function __construct(int $alliId)
     {
         $this->alliId      = $alliId;
-        $this->allianceApi = new AllianceApi();
     }
 
     /**
@@ -42,6 +41,8 @@ class AllianceBasic implements ShouldQueue
      */
     public function handle()
     {
+        $this->allianceApi = new AllianceApi();
+
         $allianceData = $this->allianceApi->getAlliancesAllianceId($this->alliId);
 
         if (!$alliance = Alliance::find($this->alliId)) {
